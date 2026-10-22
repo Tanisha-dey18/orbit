@@ -1,0 +1,18 @@
+# Render blueprint for the backend (Docker). Render's filesystem is ephemeral, so a
+# persistent disk is mounted at /srv/artifacts for the SQLite DB and results.
+services:
+  - type: web
+    name: orbit-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: ORBIT_ALLOWED_ORIGINS
+        sync: false            # set to your Netlify/Vercel URL, e.g. https://orbit.netlify.app
+      - key: ORBIT_DEVICE
+        value: cpu
+    disk:
+      name: orbit-artifacts
+      mountPath: /srv/artifacts
+      sizeGB: 1

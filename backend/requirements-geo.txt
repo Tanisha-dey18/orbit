@@ -1,0 +1,3 @@
+# Optional: GeoTIFF georeferencing (CRS-aware reprojection and physical-area estimation).
+# Without this, GeoTIFFs are read as plain images and no physical area is reported.
+rasterio>=1.3

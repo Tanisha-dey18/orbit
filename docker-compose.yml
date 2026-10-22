@@ -1,0 +1,25 @@
+# Optional containerised setup:  docker compose up --build   ->  http://localhost:8080
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      ORBIT_ALLOWED_ORIGINS: http://localhost:8080
+      ORBIT_DEVICE: cpu
+    volumes:
+      - orbit-artifacts:/srv/artifacts                 # SQLite DB + generated results persist here
+      - ./data/checkpoints:/srv/data/checkpoints:ro    # drop a trained checkpoint here to enable deep mode
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+volumes:
+  orbit-artifacts:

@@ -1,0 +1,22 @@
+# PROJECT ORBIT backend - core runtime + test dependencies.
+# Tested with: Python 3.13, fastapi 0.139, torch 2.13 (CPU), opencv 5.0, numpy 2.5, SQLAlchemy 2.0.
+#
+# PyTorch: the line below installs the default build from PyPI. For a smaller CPU-only build use:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+# For an NVIDIA GPU, pick the matching CUDA wheel from https://pytorch.org/get-started/locally/
+
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+pydantic-settings>=2.3
+python-multipart>=0.0.9
+numpy>=1.26
+opencv-python-headless>=4.9
+Pillow>=10.3
+SQLAlchemy>=2.0
+reportlab>=4.1
+torch>=2.2
+
+# tests
+pytest>=8.0
+httpx>=0.27

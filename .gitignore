@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Node
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+frontend/.env.local
+
+# Generated runtime data - never commit user uploads or results
+artifacts/*
+!artifacts/.gitkeep
+
+# Datasets and model weights (large; distributed separately)
+data/checkpoints/*
+!data/checkpoints/.gitkeep
+data/datasets/
+data/synthetic_cd/
+*.pt
+*.pth
+*.ckpt
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.claude/

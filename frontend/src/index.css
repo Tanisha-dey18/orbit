@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-space-950: #03070f;
+  --color-space-900: #060d1a;
+  --color-space-850: #0a1424;
+  --color-space-800: #0e1a2e;
+  --color-space-700: #16253d;
+  --color-space-600: #22344f;
+  --color-line: #1c2c45;
+  --color-ink: #e6eef8;
+  --color-muted: #8a9bb4;
+  --color-dim: #5c6e88;
+  --color-cyan: #22d3ee;
+  --color-electric: #3b82f6;
+  --color-violet: #a78bfa;
+  --color-change: #ff4060;
+  --color-ok: #34d399;
+  --color-warn: #fbbf24;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-space-950);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgb(34 211 238 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(34 211 238 / 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.panel {
+  background: linear-gradient(180deg, rgb(14 26 46 / 0.85), rgb(10 20 36 / 0.85));
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-dim);
+}
+
+.checker {
+  background-color: #0b1220;
+  background-image:
+    linear-gradient(45deg, #0f1828 25%, transparent 25%),
+    linear-gradient(-45deg, #0f1828 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #0f1828 75%),
+    linear-gradient(-45deg, transparent 75%, #0f1828 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+input[type="range"] {
+  accent-color: var(--color-cyan);
+}
+
+select,
+input[type="number"] {
+  color-scheme: dark;
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .orbit-spin {
+    animation: orbit-spin 60s linear infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
